@@ -5,25 +5,30 @@
 # произведение P. Помогите Кате отгадать задуманные Петей числа.
 # 4 4 -> 2 2
 # 5 6 -> 2 3
-Семинар 2 ДЗ
+#Семинар 2 ДЗ
 
-# Защита от дурака
-while True:
-    amount = int(input('Введите СУММУ 2-х чисел -> '))
-    if amount == 0:
-        print('1-ое и 2-е загаданное число равны 0')
-        exit()
-    composition = int(input('Введите ПРОИЗВЕДЕНИЕ 2-х чисел -> '))
-    if amount > 0 and composition > 0:
-        break
-    elif composition == 0:
-        print('Одно из загаданных чисел 0, а второе может быть ЛЮБЫМ!')
-        exit()
+summa = int(input("Введите сумму 2-х чисел: "))
+if summa==0:
+    print("Загаданные числа: 0 и 0")
+if summa!=0:
+    proizvedenie = int(input("Введите произведение 2-х чисел: "))
+    if proizvedenie==0:
+        print("Загаданные числа: 0 и", summa)
+else: proizvedenie=0
 
-D = (amount**2) - (4 * composition)
-first_num = (amount + math.isqrt(D))//2
-second_num = amount - first_num # ИЛИ second_num = (amount - math.isqrt(D))/2
-
-print(f'1-ое загаданное число это - {first_num}'
-      f' , а 2-ое загаданное число это - {second_num}')
+x=1
+y=1
+flag=1
+while y<=proizvedenie:
+    x=proizvedenie/y
+    flag=0
+    if x%1==0:
+        #print(x)
+        if x+y==summa:
+            print("Загаданные числа: ")
+            print(int(x), "и", y)
+            flag=1
+            y=proizvedenie
+    y=y+1
+if flag==0: print("Такой пары чисел нет")
 
